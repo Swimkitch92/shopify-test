@@ -66,14 +66,14 @@
 //   return monthlyPriceString
 // }
 
-// const getTotalCheckout = () => {
-//   let total = document.getElementsByClassName('payment-due__price')
-//   if(total.length === 0) {
-//     total = document.getElementsByClassName('_19gi7yt0 _19gi7yto _1fragemz _19gi7ytb _19gi7yt3')
-//   }
+const getTotalCheckout = () => {
+  let total = document.getElementsByClassName('payment-due__price')
+  if(total.length === 0) {
+    total = document.getElementsByClassName('_19gi7yt0 _19gi7yto _1fragemz _19gi7ytb _19gi7yt3')
+  }
   
-//   return friendlyMonthlyPrice(total[0].innerHTML, 36)
-// }
+  return friendlyMonthlyPrice(total[0].innerHTML, 36)
+}
 
 
 
@@ -297,19 +297,19 @@
     
 //   }
 
-//   const showMonthlyPriceCheckout = () => {
-//     if(!document.getElementById('price-add-upg')) {
-//       const priceContainer = document.querySelectorAll('div._1Oyyu')
-//       console.log('checkoutPRiceContainer', priceContainer)
-//       priceContainer[1].insertAdjacentHTML('afterend', 
-//       `
-//         <br>
-//           <span id="price-add-upg" style="position:relative;bottom:0px;"> Upgrade every 24 months for as low as <strong class="bold-upg">$${getTotalCheckout()}/mo. </strong> with Upgraded+</span>
-//         `
-//       )
+  const showMonthlyPriceCheckout = () => {
+    if(!document.getElementById('price-add-upg')) {
+      const priceContainer = document.querySelectorAll('div._1Oyyu')
+      console.log('checkoutPRiceContainer', priceContainer)
+      priceContainer[1].insertAdjacentHTML('afterend', 
+      `
+        <br>
+          <span id="price-add-upg" style="position:relative;bottom:0px;"> Upgrade every 24 months for as low as <strong class="bold-upg">$${getTotalCheckout()}/mo. </strong> with Upgraded+</span>
+        `
+      )
 
-//     }
-//   }
+    }
+  }
 
 
 //   if(location.href.indexOf('payment') > -1) {    
@@ -363,6 +363,9 @@
     // Add content
   
     console.log('hello world', Shopify.Checkout.step)
+    console.log(Shopify.Checkout)
+    showMonthlyPriceCheckout()
+
   });
 
 })(Checkout.$)
